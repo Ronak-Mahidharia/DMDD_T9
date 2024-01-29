@@ -1,16 +1,15 @@
-Patient Record Management System
+# Patient Record Management System
+## DMDD Term Project on Patient Record System
+## Team Members:
+- Ayasha Khan - 
+- Hitesh Kamlesh Soneta - 002845757
+- Neha Balaji - 
+- Ronak Vishal Mahidharia - 002624454
+- Vijeth Satish Reddy - 
 
-Team Member:
-•	Ayasha Khan
-•	Hitesh Kamlesh Soneta
-•	Neha Balaji
-•	Ronak Vishal Mahidharia
-•	Vijeth Satish Reddy
+## Project Description:
+The healthcare industry is increasingly relying on digital technology to better manage patient data and medical records. 
 
-Background:
-The healthcare industry is increasingly relying on digital technology to
-better manage patient data and medical records. Comprehensive
-patient record management systems are essential for hospitals to store,
-retrieve and manage patient data effectively. Such systems are
-essential to improve healthcare, enable faster access to patient
-histories, reduce errors and facilitate quality patient care.
+Comprehensive patient record management systems are essential for hospitals to store, retrieve, and manage patient data effectively. 
+
+Such systems are essential to improve healthcare, enable faster access to patient histories, reduce errors, and facilitate quality patient care.
