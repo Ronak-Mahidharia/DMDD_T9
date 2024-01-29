@@ -5,7 +5,7 @@
 - Hitesh Kamlesh Soneta - 002845757
 - Neha Balaji - 
 - Ronak Vishal Mahidharia - 002624454
-- Vijeth Satish Reddy - 
+- Vijeth Satish Reddy - 002815735
 
 ## Project Description:
 The healthcare industry is increasingly relying on digital technology to better manage patient data and medical records. 
