@@ -1,7 +1,7 @@
 # Patient Record Management System
 ## DMDD Term Project on Patient Record System
 ## Team Members:
-- Ayasha Khan - 
+- Ayasha Khan - 002295604
 - Hitesh Kamlesh Soneta - 002845757
 - Neha Balaji - 
 - Ronak Vishal Mahidharia - 002624454
