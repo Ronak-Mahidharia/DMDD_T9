@@ -1,6 +1,11 @@
-# DMMD_T9
-
 Patient Record Management System
+
+Team Member:
+•	Ayasha Khan
+•	Hitesh Kamlesh Soneta
+•	Neha Balaji
+•	Ronak Vishal Mahidharia
+•	Vijeth Satish Reddy
 
 Background:
 The healthcare industry is increasingly relying on digital technology to
