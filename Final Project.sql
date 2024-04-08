@@ -1,6 +1,13 @@
-CREATE DATABASE PATIENT_MANAGEMENT
+-- iF DATABASE EXISTS, DROP
+IF EXISTS (SELECT name FROM sys.databases WHERE name = N'PATIENT_MANAGEMENT')
+    DROP DATABASE PATIENT_MANAGEMENT
+GO
 
-USE PATIENT_MANAGEMENT;
+CREATE DATABASE [PATIENT_MANAGEMENT]
+go
+
+USE [PATIENT_MANAGEMENT]
+GO
 
 
 CREATE TABLE Patient (
@@ -13,7 +20,7 @@ CREATE TABLE Patient (
     Phone_Number VARCHAR(15),
     Email VARCHAR(50)
 );
-
+GO
 
 CREATE TABLE Doctor (
     Doctor_ID INT PRIMARY KEY IDENTITY(1,1),
@@ -23,7 +30,7 @@ CREATE TABLE Doctor (
     Specialization VARCHAR(50),
     Email_ID VARCHAR(50)
 );
-
+GO
 
 CREATE TABLE Appointment (
     Appointment_ID INT PRIMARY KEY IDENTITY(1,1),
@@ -35,7 +42,7 @@ CREATE TABLE Appointment (
     FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID),
     FOREIGN KEY (Doctor_ID) REFERENCES Doctor(Doctor_ID)
 );
-
+GO
 
 CREATE TABLE Insurance (
     Insurance_ID INT PRIMARY KEY IDENTITY(1,1),
@@ -46,6 +53,7 @@ CREATE TABLE Insurance (
     Validity_Period DATE,
     FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID)
 );
+GO
 
 
 CREATE TABLE Medical_History (
@@ -56,14 +64,14 @@ CREATE TABLE Medical_History (
     FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID),
     FOREIGN KEY (Doctor_ID) REFERENCES Doctor(Doctor_ID)
 );
-
+GO
 
 CREATE TABLE Prescription (
     Prescription_ID INT PRIMARY KEY IDENTITY(1,1),
     Record_ID INT,
     FOREIGN KEY (Record_ID) REFERENCES Medical_History(Record_ID)
 );
-
+GO
 
 CREATE TABLE Medicine (
     Medicine_ID INT PRIMARY KEY IDENTITY(1,1),
@@ -71,6 +79,7 @@ CREATE TABLE Medicine (
     Name VARCHAR(50),
     Possible_Side_Effect VARCHAR(50)
 );
+GO
 
 
 CREATE TABLE PrescriptionMedicine (
@@ -83,6 +92,7 @@ CREATE TABLE PrescriptionMedicine (
     FOREIGN KEY (Prescription_ID) REFERENCES Prescription(Prescription_ID),
     FOREIGN KEY (Medicine_ID) REFERENCES Medicine(Medicine_ID)
 );
+GO
 
 
 CREATE TABLE Vaccine (
@@ -90,13 +100,14 @@ CREATE TABLE Vaccine (
     Description TEXT,
     Name VARCHAR(50)
 );
-
+GO
 
 CREATE TABLE Disease (
     Disease_ID INT PRIMARY KEY,
     Name VARCHAR(50),
     Description TEXT
 );
+GO
 
 
 CREATE TABLE PatientAllergy (
@@ -106,14 +117,14 @@ CREATE TABLE PatientAllergy (
     PRIMARY KEY (Allergy_ID, Patient_ID),
     FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID)
 );
-
+GO
 
 CREATE TABLE Allergy (
     Allergy_ID INT PRIMARY KEY IDENTITY(1,1),
     Name VARCHAR(50),
     Medication VARCHAR(50)
 );
-
+GO
 
 CREATE TABLE PatientGeneralHistory (
     PGRecord_ID INT PRIMARY KEY,
@@ -121,6 +132,7 @@ CREATE TABLE PatientGeneralHistory (
     Doctor_Note TEXT,
     FOREIGN KEY (PGRecord_ID) REFERENCES Medical_History(Record_ID)
 );
+GO
 
 
 CREATE TABLE PatientDiseasesHistory (
@@ -129,7 +141,7 @@ CREATE TABLE PatientDiseasesHistory (
     Symptoms TEXT,
     FOREIGN KEY (PDRecord_ID) REFERENCES Medical_History(Record_ID)
 );
-
+GO
 
 CREATE TABLE PatientVaccineHistory (
     PVRecord_ID INT PRIMARY KEY,
@@ -137,7 +149,7 @@ CREATE TABLE PatientVaccineHistory (
     Date_Of_Vaccination DATE,
     FOREIGN KEY (PVRecord_ID) REFERENCES Medical_History(Record_ID)
 );
-
+GO
 
 CREATE TABLE Family (
     Family_ID INT PRIMARY KEY IDENTITY(1,1),
@@ -146,46 +158,4 @@ CREATE TABLE Family (
     Relative_Relation VARCHAR(50),
     FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID)
 );
-
-ALTER TABLE Patient
-ADD CONSTRAINT CHK_Patient_DOB
-CHECK (DOB <= GETDATE() AND DOB > DATEADD(YEAR, -100, GETDATE()));
-
-ALTER TABLE Appointment
-ADD CONSTRAINT CHK_Appointment_Date
-CHECK (Appointment_Date >= GETDATE() AND Appointment_Date < DATEADD(YEAR, 1, GETDATE()));
-
-ALTER TABLE Patient
-ADD CONSTRAINT CHK_Patient_Gender
-CHECK (Gender IN ('M', 'F', 'O'));
-
-ALTER TABLE Patient
-ADD CONSTRAINT CHK_Patient_Email
-CHECK (Email LIKE '%@%.%');
-
-ALTER TABLE Insurance
-ADD CONSTRAINT CHK_Insurance_Validity_Period
-CHECK (Validity_Period >= GETDATE());
-
-
-drop database PATIENT_MANAGEMENT
-
-/* Q5
-
-CREATE FUNCTION CheckInsuranceStatus(@ValidityPeriod DATE)
-RETURNS VARCHAR(10)
-AS
-BEGIN
-    DECLARE @Status VARCHAR(10)
-    SET @Status = CASE 
-                    WHEN @ValidityPeriod >= CAST(GETDATE() AS DATE) THEN 'Active'
-                    ELSE 'Not Active'
-                  END
-    RETURN @Status
-END
-
-
-ALTER TABLE Insurance
-ADD Status AS dbo.CheckInsuranceStatus(Validity_Period)
-
-*/
+GO

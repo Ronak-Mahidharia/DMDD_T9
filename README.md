@@ -3,7 +3,7 @@
 ## Team Members:
 - Ayasha Khan - 002295604
 - Hitesh Kamlesh Soneta - 002845757
-- Neha Balaji - 
+- Neha Balaji - 002295604
 - Ronak Vishal Mahidharia - 002624454
 - Vijeth Satish Reddy - 002815735
 
