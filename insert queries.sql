@@ -83,8 +83,8 @@ VALUES
 
 select * from Appointment;
 
-drop table Appointment
---drop table Appointment;
+-- drop table Appointment
+-- drop table Appointment;
 
 -----
 

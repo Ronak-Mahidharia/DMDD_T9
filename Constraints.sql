@@ -1,9 +1,26 @@
 USE PATIENT_MANAGEMENT;
 
+ALTER TABLE Patient
+ADD CONSTRAINT CHK_Patient_DOB
+CHECK (DOB <= GETDATE() AND DOB > DATEADD(YEAR, -100, GETDATE()));
+
 --Appointment date is in future
 ALTER TABLE Appointment
-ADD CONSTRAINT check_future_appointment_date
-CHECK (Appointment_Date > GETDATE());
+ADD CONSTRAINT CHK_Appointment_Date
+CHECK (Appointment_Date >= GETDATE() AND Appointment_Date < DATEADD(YEAR, 1, GETDATE()));
+
+ALTER TABLE Patient
+ADD CONSTRAINT CHK_Patient_Gender
+CHECK (Gender IN ('M', 'F', 'O'));
+
+ALTER TABLE Patient
+ADD CONSTRAINT CHK_Patient_Email
+CHECK (Email LIKE '%@%.%');
+
+ALTER TABLE Insurance
+ADD CONSTRAINT CHK_Insurance_Validity_Period
+CHECK (Validity_Period >= GETDATE());
+
 
 -- Query which wont work now
 --INSERT INTO Appointment (Appointment_Date, Patient_ID, Doctor_ID,Purpose,Status) VALUES (DATEADD(day, -3, GETDATE()), 1, 2,'regular Checkup','Scheduled');

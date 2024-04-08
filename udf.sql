@@ -68,3 +68,22 @@ ALTER TABLE Appointment
 ADD Days_Until AS dbo.DaysUntilAppointment(Appointment_Date);
 select * from appointment;
 
+/* Q5
+
+CREATE FUNCTION CheckInsuranceStatus(@ValidityPeriod DATE)
+RETURNS VARCHAR(10)
+AS
+BEGIN
+    DECLARE @Status VARCHAR(10)
+    SET @Status = CASE 
+                    WHEN @ValidityPeriod >= CAST(GETDATE() AS DATE) THEN 'Active'
+                    ELSE 'Not Active'
+                  END
+    RETURN @Status
+END
+
+
+ALTER TABLE Insurance
+ADD Status AS dbo.CheckInsuranceStatus(Validity_Period)
+
+*/
