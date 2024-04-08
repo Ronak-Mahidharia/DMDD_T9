@@ -48,6 +48,7 @@ select * from doctor;
 -- Insert data into the Appointment table
 INSERT INTO Appointment (Patient_ID, Doctor_ID, Appointment_Date, Purpose, Status)
 VALUES 
+
 (1, 1, '2024-04-10', 'Regular checkup', 'Incomplete'),
 (2, 2, '2023-04-12', 'Vaccination', 'Incomplete'),
 (3, 3, '2022-04-15', 'Follow-up', 'Incomplete'),
@@ -84,7 +85,6 @@ select * from Appointment;
 
 drop table Appointment
 --drop table Appointment;
-
 
 -----
 
@@ -393,9 +393,8 @@ VALUES
 (20, 5, 'Joint pain, stiffness, swelling');
 
 
+
 select * from PatientDiseasesHistory;
-
-
 
 
 --------
