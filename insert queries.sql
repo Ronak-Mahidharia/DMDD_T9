@@ -48,29 +48,43 @@ select * from doctor;
 -- Insert data into the Appointment table
 INSERT INTO Appointment (Patient_ID, Doctor_ID, Appointment_Date, Purpose, Status)
 VALUES 
-(1, 1, '2024-04-10', 'Regular checkup', 'Scheduled'),
-(2, 2, '2024-04-12', 'Vaccination', 'Scheduled'),
-(3, 3, '2024-04-15', 'Follow-up', 'Scheduled'),
-(4, 4, '2024-04-18', 'Skin condition', 'Scheduled'),
-(5, 5, '2024-04-20', 'Headache', 'Scheduled'),
-(6, 6, '2024-04-22', 'Chemotherapy', 'Scheduled'),
+
+(1, 1, '2024-04-10', 'Regular checkup', 'Incomplete'),
+(2, 2, '2023-04-12', 'Vaccination', 'Incomplete'),
+(3, 3, '2022-04-15', 'Follow-up', 'Incomplete'),
+(4, 4, '2021-04-18', 'Skin condition', 'Scheduled'),
+(5, 5, '2023-04-20', 'Headache', 'Incomplete'),
+(6, 6, '2024-04-22', 'Chemotherapy', 'Incomplete'),
 (7, 7, '2024-04-25', 'Therapy session', 'Scheduled'),
-(8, 8, '2024-04-28', 'Annual checkup', 'Scheduled'),
-(9, 9, '2024-04-30', 'Consultation', 'Scheduled'),
-(10, 10, '2024-05-02', 'Ear pain', 'Scheduled'),
-(11, 1, '2024-05-05', 'Chest pain', 'Scheduled'),
-(12, 2, '2024-05-08', 'Flu symptoms', 'Scheduled'),
-(13, 3, '2024-05-10', 'X-ray', 'Scheduled'),
-(14, 4, '2024-05-12', 'Biopsy', 'Scheduled'),
-(15, 5, '2024-05-15', 'Migraine', 'Scheduled'),
-(16, 6, '2024-05-18', 'Psychiatric evaluation', 'Scheduled'),
-(17, 7, '2024-05-20', 'Counseling', 'Scheduled'),
-(18, 8, '2024-05-22', 'Pap smear', 'Scheduled'),
-(19, 9, '2024-05-25', 'Prostate exam', 'Scheduled'),
-(20, 10, '2024-05-28', 'Tonsillectomy', 'Scheduled');
+(8, 8, '2024-04-28', 'Annual checkup', 'Completed'),
+(9, 9, '2021-04-30', 'Consultation', 'Completed'),
+(10, 10, '2023-05-02', 'Ear pain', 'Completed'),
+(11, 3, '2022-05-05', 'Chest pain', 'Incomplete'),
+(12, 2, '2024-05-08', 'Flu symptoms', 'Completed'),
+(13, 4, '2022-05-10', 'X-ray', 'Incomplete'),
+(14, 4, '2024-05-12', 'Biopsy', 'Incomplete'),
+(15, 5, '2024-05-15', 'Migraine', 'Completed'),
+(16, 6, '2024-05-18', 'Psychiatric evaluation', 'Completed'),
+(17, 3, '2024-05-20', 'Counseling', 'Scheduled'),
+(18, 8, '2024-05-22', 'Pap smear', 'Completed'),
+(19, 8, '2023-05-25', 'Prostate exam', 'Incomplete'),
+(20, 10, '2024-05-28', 'Tonsillectomy', 'Scheduled'),
+(1, 7, '2021-05-31', 'Annual checkup', 'Scheduled'),
+(2, 4, '2024-06-03', 'X-ray', 'Completed'),
+(3, 4, '2021-06-06', 'Skin condition', 'Incomplete'),
+(4, 2, '2021-06-09', 'Regular checkup', 'Completed'),
+(5, 6, '2021-06-12', 'Regular checkup', 'Scheduled'),
+(6, 10, '2022-06-15', 'Regular checkup', 'Completed'),
+(7, 5, '2022-06-18', 'Skin condition', 'Completed'),
+(8, 3, '2022-06-21', 'Tonsillectomy', 'Completed'),
+(9, 2, '2022-06-24', 'Chest pain', 'Scheduled'),
+(10, 4, '2022-06-27', 'X-ray', 'Completed');
+
 
 select * from Appointment;
 
+drop table Appointment
+--drop table Appointment;
 
 -----
 
@@ -364,19 +378,20 @@ VALUES
 (5, 5, 'Joint pain, stiffness, swelling'),
 (6, 6, 'Memory loss, confusion, difficulty performing familiar tasks'),
 (7, 7, 'Unexplained weight loss, persistent fatigue, lump or swelling'),
-(8, 8, 'Coughing, wheezing, shortness of breath'),
-(9, 9, 'Chest pain, shortness of breath, dizziness'),
-(10, 10, 'Sudden numbness or weakness, trouble speaking, confusion'),
+(8, 3, 'Headache, dizziness, blurred vision'),
+(9, 1, 'Fever, cough, sore throats'),
+(10, 1, 'Sudden numbness or weakness, trouble speaking, confusion'),
 (11, 11, 'Back pain, bone fractures, loss of height'),
 (12, 12, 'Persistent sadness, loss of interest or pleasure, changes in appetite'),
-(13, 13, 'Seizures, loss of consciousness, confusion'),
-(14, 14, 'Tremors, stiffness, slowness of movement'),
-(15, 15, 'Fatigue, weakness, swelling of ankles and legs'),
+(13, 3, 'Headache, dizziness, blurred vision'),
+(14, 5, 'Tremors, stiffness, slowness of movement'),
+(15, 3, 'Fatigue, weakness, swelling of ankles and legs'),
 (16, 16, 'Heartburn, chest pain, difficulty swallowing'),
-(17, 17, 'Severe headache, nausea, sensitivity to light'),
-(18, 18, 'Fatigue, weakness, pale or yellowish skin'),
-(19, 19, 'Shortness of breath, snoring, high blood pressure'),
-(20, 20, 'Joint pain, stiffness, swelling');
+(17, 1, 'Fever, cough, sore throat'),
+(18, 9, 'Fatigue, weakness, pale or yellowish skin'),
+(19, 10, 'Shortness of breath, snoring, high blood pressure'),
+(20, 5, 'Joint pain, stiffness, swelling');
+
 
 
 select * from PatientDiseasesHistory;
